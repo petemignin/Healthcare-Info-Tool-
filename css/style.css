@@ -1,0 +1,54 @@
+html, body, h1, p, button {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+#searchContainer {
+  margin-bottom: 20px;
+}
+
+#searchInput {
+  width: 300px; /* Adjust the width to your desired value */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+#searchButton {
+  padding: 10px 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+  border-radius: 4px;
+}
+
+#searchButton:hover {
+  background-color: #45a049;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+#searchResults {
+  margin-top: 20px;
+}

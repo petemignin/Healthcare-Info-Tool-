@@ -6,42 +6,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Healthcare Information Resource</title>
   <link rel="stylesheet" href="css/style.css">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
   <header>
     <h1>Healthcare Information Resource</h1>
   </header>
-
   <main>
-    <form id="searchForm">
-      <div id="searchContainer">
-        <input type="text" id="searchInput" placeholder="Search...">
-        <button type="submit" id="searchButton">Search</button>
-      </div>
-    </form>
+    <button id="glossaryButton">Re-List the terms</button>
+    <section id="glossarySection">
+      <h2>Term:</h2>
+      <ul id="termsList">
 
-    <section id="popularTopics">
-      <h2>Popular topics:</h2>
-      <ul>
-        <li><a href="#" id="affordExempt">Affordability Exemption</a></li>
-        <li><a href="#" id="accessibility">Accessibility</a></li>
-        <li>Enroll in Health Insurance</li>
-        <li>Saving Money</li>
-        <li>Health Benefits & Coverage</li>
-        <li>Estimating Income</li>
       </ul>
     </section>
-
-    <section id="searchResults">
-      <h2>HealthCare.gov Facts:</h2>
-      <div id="factContainer">
-        <!-- Search results will be dynamically inserted here -->
-      </div>
+    <section id="definitionSection">
+      <div id="definition"></div>
     </section>
   </main>
-
   <script src="js/main.js"></script>
 </body>
 

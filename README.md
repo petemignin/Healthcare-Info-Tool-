@@ -8,12 +8,13 @@ The Healthcare.gov Explanation Glossary is a web application that allows users t
 
 To run the application locally, follow these steps:
 
-1. Clone the repository: `git clone <git@github.com:petemignin/Healthcare.gov-Explanation-Tool.git>`
-2. Navigate to the project directory: `cd Healthcare.gov-Explanation-Tool`
-3. Install dependencies: `npm install`
-4. Start the development server: `npm start`
+1. Fork and clone the repository: https://github.com/petemignin/Healthcare.gov-Explanation-Tool
+2. Navigate to the project directory.
+3. Install the json-server to mock an external API: `$ npm install -g json-server`
+4. Then run the server with: `$ json-server db.json`
+5. The application will be running on `http://localhost:3000`
 
-The application will be running on `http://localhost:3000`.
+
 
 ## Usage
 

@@ -18,9 +18,9 @@ h1 {
   margin-bottom: 20px;
 }
 
-#glossaryButton {
+#relistButton {
   padding: 10px 15px;
-  background-color: #4CAF50;
+  background-color: purple;
   color: white;
   border: none;
   cursor: pointer;
@@ -28,8 +28,8 @@ h1 {
   border-radius: 4px;
 }
 
-#glossaryButton:hover {
-  background-color: #45a049;
+#relistButton:hover {
+  background-color: purple;
 }
 
 ul {
@@ -41,34 +41,28 @@ li {
   margin-bottom: 10px;
 }
 
-#definition {
+#definitionContainer {
   margin-top: 20px;
 }
 
-#definitionSection h3 {
-  font-size: 1.8rem;
-  margin-bottom: 0.5rem;
-  color: #4CAF50;
-}
-
-#definition h4 {
+#definitionContainer h4 {
   font-size: 2rem;
   margin-bottom: 0.5rem;
-  color: #4CAF50;
+  color: purple;
 }
 
-#definition h5 {
+#definitionContainer h5 {
   font-size: 1.5rem;
   margin-bottom: 0.25rem;
   color: black;
 }
 
-#definition p {
+#definitionContainer p {
   margin-bottom: 0.5rem;
-  color: #4CAF50;
+  color: purple;
 }
 
-#definition .url {
-  color: #4CAF50;
+#definitionContainer .url {
+  color: purple;
   margin-top: 0.25rem;
 }

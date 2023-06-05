@@ -51,8 +51,8 @@ function displayWordDefinition(word) {
     <h4>${wordTitle}</h4>
     <h5>Explanation:</h5>
     <p>${wordDefinition}</p>
-    <h5>URL:</h5>
-    <p>https://www.healthcare.gov${wordURL}</p>
+    <h5>View this on Healthcare.gov:</h5>
+    <p><a href="https://www.healthcare.gov${wordURL}" target="_blank">https://www.healthcare.gov${wordURL}</a></p>
   `;
 
   definitionContainer.innerHTML = definitionHTML;

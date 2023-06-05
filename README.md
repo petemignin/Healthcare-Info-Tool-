@@ -4,6 +4,8 @@
 
 The Healthcare.gov Explanation Glossary is a web application that allows users to view and fetch healthcare glossary terms from a server. It provides a user-friendly interface to access definitions and related information about various healthcare terms.
 
+![](healthcare_glossary.gif)
+
 ## Installation
 
 To run the application locally, follow these steps:
@@ -22,6 +24,7 @@ To run the application locally, follow these steps:
 2. Click on a term from the list to view its explanation and related information.
 3. The URL is shown below the explanation information section if you want to copy and paste it, which will take you to the official Healthcare.gov website. 
 4. Click the "Re-List the terms" button to display all the glossary terms after you have read a certain one.
+5. Demo video: https://youtu.be/1Ny9TUlmzXc
 
 ## Technologies Used
 

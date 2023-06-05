@@ -1,54 +1,69 @@
-window.addEventListener("DOMContentLoaded", () => {
-  listGlossaryTitles();
-  document
-    .getElementById("glossaryButton")
-    .addEventListener("click", listGlossaryTitles);
+const glossaryURL = "http://localhost:3000/glossary";
+const wordListContainer = document.querySelector("ul");
+const definitionContainer = document.getElementById("definitionContainer");
+
+document.addEventListener("DOMContentLoaded", () => {
+  fetchGlossary().then(renderGlossaryList);
 });
 
-function listGlossaryTitles() {
-  const ul = document.querySelector("ul");
-  fetch("http://localhost:3000/glossary")
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data);
-      data.forEach((term, index) => {
-        const termTitle = term.title;
-        const termIndex = index; // Use index as the makeshift ID
-        ul.innerHTML += `<li><a href="#" data-index="${termIndex}">${termTitle}</a></li>`;
-      });
-      clickLink();
+function fetchGlossary() {
+  return fetch(glossaryURL).then((res) => res.json());
+}
+
+function renderGlossaryList(glossary) {
+  clearWordList();
+  glossary.forEach((word, index) => appendWordToList(word, index));
+}
+
+function clearWordList() {
+  wordListContainer.innerHTML = "";
+}
+
+function appendWordToList(word, index) {
+  const wordLi = document.createElement("li");
+  const wordLink = document.createElement("a");
+  wordLink.addEventListener("click", handleWordDefinitionClick);
+  wordLink.setAttribute("data-id", index);
+  wordLink.href = "#";
+  wordLink.textContent = word.title;
+  wordLi.appendChild(wordLink);
+  wordListContainer.appendChild(wordLi);
+}
+
+function handleWordDefinitionClick(event) {
+  event.preventDefault();
+  const wordId = event.currentTarget.getAttribute("data-id");
+  fetchGlossary()
+    .then((glossary) => {
+      const word = glossary[wordId];
+      clearWordList();
+      displayWordDefinition(word);
     });
 }
 
-const clickLink = () => {
-  const titles = document.querySelectorAll("a");
-  titles.forEach((title) => {
-    title.addEventListener("click", displayContent);
-  });
-};
+function displayWordDefinition(word) {
+  clearDefinitionContainer();
+  const wordTitle = word.title;
+  const wordDefinition = word.content;
+  const wordURL = word.url;
 
-const displayContent = (event) => {
-  console.log(event.target.dataset.index);
-  const definition = document.getElementById("definition");
-  const ul = document.querySelector("ul");
-  const termIndex = event.target.dataset.index;
-  ul.innerHTML = "";
-  fetch("http://localhost:3000/glossary")
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data);
-      const term = data[termIndex];
-      if (term) {
-        const termTitle = term.title;
-        const termContent = term.content;
-        console.log(termTitle, termContent);
-        definition.innerHTML = `
-          <h4>${termTitle}</h4>
-          <h5>Explanation:</h5>
-          <p>${termContent}</p>
-          <h5>URL:</h5>
-          <p>https://www.healthcare.gov${term.url}</p>
-        `;
-      }
-    });
-};
+  const definitionHTML = `
+    <h4>${wordTitle}</h4>
+    <h5>Explanation:</h5>
+    <p>${wordDefinition}</p>
+    <h5>URL:</h5>
+    <p>https://www.healthcare.gov${wordURL}</p>
+  `;
+
+  definitionContainer.innerHTML = definitionHTML;
+}
+
+function clearDefinitionContainer() {
+  definitionContainer.innerHTML = "";
+}
+
+const relistButton = document.getElementById("relistButton");
+relistButton.addEventListener("click", () => {
+  clearDefinitionContainer();
+  fetchGlossary().then(renderGlossaryList);
+});

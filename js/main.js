@@ -2,14 +2,14 @@ const glossaryURL = "http://localhost:3000/glossary";
 const wordListContainer = document.querySelector("ul");
 const definitionContainer = document.getElementById("definitionContainer");
 
-fetchGlossary().then(renderGlossaryList);
-
 function fetchGlossary() {
   return fetch(glossaryURL).then((res) => res.json());
 }
 
+fetchGlossary()
+.then(renderGlossaryList);
+
 function renderGlossaryList(glossary) {
-  // clearWordList();
   glossary.forEach((word, index) => appendWordToList(word, index));
 }
 
@@ -69,3 +69,5 @@ toggleModeButton.addEventListener("click", toggleMode);
 function toggleMode() {
   body.classList.toggle("dark-mode");
 }
+
+

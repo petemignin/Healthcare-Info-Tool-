@@ -24,7 +24,8 @@ To run the application locally, follow these steps:
 2. Click on a term from the list to view its explanation and related information.
 3. The URL is shown below the explanation information section if you want to copy and paste it, which will take you to the official Healthcare.gov website. 
 4. Click the "Re-List the terms" button to display all the glossary terms after you have read a certain one.
-5. Demo video: https://youtu.be/1Ny9TUlmzXc
+5. There is also a "dark mode" button that will allow you to toggle between a "light" and "dark" theme.
+6. Demo video: https://youtu.be/1Ny9TUlmzXc
 
 ## Technologies Used
 

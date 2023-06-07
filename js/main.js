@@ -2,21 +2,15 @@ const glossaryURL = "http://localhost:3000/glossary";
 const wordListContainer = document.querySelector("ul");
 const definitionContainer = document.getElementById("definitionContainer");
 
-document.addEventListener("DOMContentLoaded", () => {
-  fetchGlossary().then(renderGlossaryList);
-});
+fetchGlossary().then(renderGlossaryList);
 
 function fetchGlossary() {
   return fetch(glossaryURL).then((res) => res.json());
 }
 
 function renderGlossaryList(glossary) {
-  clearWordList();
+  // clearWordList();
   glossary.forEach((word, index) => appendWordToList(word, index));
-}
-
-function clearWordList() {
-  wordListContainer.innerHTML = "";
 }
 
 function appendWordToList(word, index) {
@@ -30,15 +24,18 @@ function appendWordToList(word, index) {
   wordListContainer.appendChild(wordLi);
 }
 
+function clearWordList() {
+  wordListContainer.innerHTML = "";
+}
+
 function handleWordDefinitionClick(event) {
   event.preventDefault();
   const wordId = event.currentTarget.getAttribute("data-id");
-  fetchGlossary()
-    .then((glossary) => {
-      const word = glossary[wordId];
-      clearWordList();
-      displayWordDefinition(word);
-    });
+  fetchGlossary().then((glossary) => {
+    const word = glossary[wordId];
+    clearWordList();
+    displayWordDefinition(word);
+  });
 }
 
 function displayWordDefinition(word) {
@@ -46,7 +43,6 @@ function displayWordDefinition(word) {
   const wordTitle = word.title;
   const wordDefinition = word.content;
   const wordURL = word.url;
-
   const definitionHTML = `
     <h4>${wordTitle}</h4>
     <h5>Explanation:</h5>
@@ -54,7 +50,6 @@ function displayWordDefinition(word) {
     <h5>View this on Healthcare.gov:</h5>
     <p><a href="https://www.healthcare.gov${wordURL}" target="_blank">https://www.healthcare.gov${wordURL}</a></p>
   `;
-
   definitionContainer.innerHTML = definitionHTML;
 }
 
@@ -62,8 +57,15 @@ function clearDefinitionContainer() {
   definitionContainer.innerHTML = "";
 }
 
-const relistButton = document.getElementById("relistButton");
-relistButton.addEventListener("click", () => {
+const handleRelistButtonClick = document.getElementById("relistButton");
+handleRelistButtonClick.addEventListener("click", () => {
   clearDefinitionContainer();
   fetchGlossary().then(renderGlossaryList);
 });
+
+const toggleModeButton = document.getElementById("toggleDarkModeBtn");
+const body = document.body;
+toggleModeButton.addEventListener("click", toggleMode);
+function toggleMode() {
+  body.classList.toggle("dark-mode");
+}

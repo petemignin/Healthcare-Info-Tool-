@@ -18,9 +18,9 @@ h1 {
   margin-bottom: 20px;
 }
 
-#relistButton {
+#relistButton, #toggleDarkModeBtn {
   padding: 10px 15px;
-  background-color: purple;
+  background-color: #888888;
   color: white;
   border: none;
   cursor: pointer;
@@ -28,8 +28,8 @@ h1 {
   border-radius: 4px;
 }
 
-#relistButton:hover {
-  background-color: purple;
+#relistButton, #toggleDarkModeBtn:hover {
+  background-color: #888888;
 }
 
 ul {
@@ -48,21 +48,30 @@ li {
 #definitionContainer h4 {
   font-size: 2rem;
   margin-bottom: 0.5rem;
-  color: purple;
+  color: #888888;
 }
 
 #definitionContainer h5 {
   font-size: 1.5rem;
   margin-bottom: 0.25rem;
-  color: black;
+  color: #888888;
 }
 
 #definitionContainer p {
   margin-bottom: 0.5rem;
-  color: purple;
+  color: #888888;
 }
 
 #definitionContainer .url {
-  color: purple;
+  color: #888888;
   margin-top: 0.25rem;
+}
+
+.dark-mode {
+  background-color: #333;
+  color: #fff;
+}
+
+a {
+  color: gray;
 }

@@ -57,14 +57,16 @@ function clearDefinitionContainer() {
 }
 
 const handleRelistButtonClick = document.getElementById("relistButton");
-handleRelistButtonClick.addEventListener("dblclick", () => {
+handleRelistButtonClick.addEventListener("mouseover", () => {
   clearDefinitionContainer();
   fetchGlossary().then(renderGlossaryList);
 });
 
-const toggleModeButton = document.getElementById("toggleDarkModeBtn");
 const body = document.body;
-toggleModeButton.addEventListener("mouseover", toggleMode);
-function toggleMode() {
-  body.classList.toggle("dark-mode");
+window.addEventListener("keydown", handleKeyDown);
+
+function handleKeyDown(event) {
+  if (event.key === "Enter") {
+    body.classList.toggle("dark-mode");
+  }
 }

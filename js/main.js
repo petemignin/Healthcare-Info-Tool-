@@ -6,8 +6,7 @@ function fetchGlossary() {
   return fetch(glossaryURL).then((res) => res.json());
 }
 
-fetchGlossary()
-.then(renderGlossaryList);
+fetchGlossary().then(renderGlossaryList);
 
 function renderGlossaryList(glossary) {
   glossary.forEach((word, index) => appendWordToList(word, index));
@@ -58,16 +57,14 @@ function clearDefinitionContainer() {
 }
 
 const handleRelistButtonClick = document.getElementById("relistButton");
-handleRelistButtonClick.addEventListener("click", () => {
+handleRelistButtonClick.addEventListener("dblclick", () => {
   clearDefinitionContainer();
   fetchGlossary().then(renderGlossaryList);
 });
 
 const toggleModeButton = document.getElementById("toggleDarkModeBtn");
 const body = document.body;
-toggleModeButton.addEventListener("click", toggleMode);
+toggleModeButton.addEventListener("mouseover", toggleMode);
 function toggleMode() {
   body.classList.toggle("dark-mode");
 }
-
-

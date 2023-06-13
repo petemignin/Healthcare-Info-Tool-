@@ -6,7 +6,8 @@ function fetchGlossary() {
   return fetch(glossaryURL).then((res) => res.json());
 }
 
-fetchGlossary().then(renderGlossaryList);
+fetchGlossary()
+.then(renderGlossaryList);
 
 function renderGlossaryList(glossary) {
   glossary.forEach((word, index) => appendWordToList(word, index));
@@ -64,7 +65,6 @@ handleRelistButtonClick.addEventListener("mouseover", () => {
 
 const body = document.body;
 window.addEventListener("keydown", handleKeyDown);
-
 function handleKeyDown(event) {
   if (event.key === "Enter") {
     body.classList.toggle("dark-mode");
